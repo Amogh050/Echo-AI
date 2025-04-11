@@ -5,7 +5,7 @@ import 'package:echo_ai/global.dart' as global;
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
-class GeminiServices {
+class AiServices {
   List<Map<String, String>> messages = [];
 
   Future<String> checkIfImageGeneration(String prompt) async {
@@ -151,18 +151,19 @@ class GeminiServices {
     }
   }
 
-  /// Formats Gemini responses to handle markdown formatting like asterisks
   String formatGeminiResponse(String response) {
-    // Handle bold text (remove ** markers but keep the text)
-    response = response.replaceAll(RegExp(r'\*\*([\s\S]*?)\*\*'), r'$1');
+    response = response.replaceAllMapped(
+      RegExp(r'\*\*([\s\S]*?)\*\*'),
+      (match) => match.group(1)!,
+    );
 
-    // Handle italic text (remove * markers but keep the text)
-    response = response.replaceAll(RegExp(r'\*([\s\S]*?)\*'), r'$1');
+    response = response.replaceAllMapped(
+      RegExp(r'\*([\s\S]*?)\*'),
+      (match) => match.group(1)!,
+    );
 
-    // Handle bullet points (convert to proper bullet points with spacing)
     response = response.replaceAll(RegExp(r'^\* ', multiLine: true), '• ');
 
-    // Remove any extra asterisks that might be left
     response = response.replaceAll('*', '');
 
     return response;

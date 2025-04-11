@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:animate_do/animate_do.dart';
+import 'package:echo_ai/ai_services.dart';
 import 'package:echo_ai/feature_box.dart';
-import 'package:echo_ai/gemini_services.dart';
 import 'package:echo_ai/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   final speechToText = SpeechToText();
   final flutterTts = FlutterTts();
   String lastWords = '';
-  final GeminiServices geminiServices = GeminiServices();
+  final aiServices = AiServices();
   String? generatedContent;
   String? generatedImageUrl;
   int start = 200;
@@ -343,7 +343,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               
               // Process the request
               try {
-                final speech = await geminiServices.checkIfImageGeneration(
+                final speech = await aiServices.checkIfImageGeneration(
                   lastWords,
                 );
                 

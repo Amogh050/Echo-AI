@@ -199,8 +199,8 @@ class GeminiServices {
 
       // 3. Upload to Cloudinary
       final cloudinary = CloudinaryPublic(
-        global.cloudinaryCloudName,
-        global.cloudinaryUploadPreset,
+        global.cloudinaryCloudName!,
+        global.cloudinaryUploadPreset!,
         cache: false,
       );
 

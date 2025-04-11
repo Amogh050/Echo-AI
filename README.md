@@ -1,16 +1,24 @@
-# echo_ai
+# Echo-AI
 
-A new Flutter project.
+Echo-AI is a simple Flutter project where you can interact with the app using your voice. The app listens to your commands and reads its responses aloud. It also supports generating images based on your input.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## What It Does
 
-A few resources to get you started if this is your first Flutter project:
+- **Voice Command Input:**  
+  Speak your commands to interact with the app.
+  
+- **Spoken Responses:**  
+  The app reads its responses out loud.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Prompt Processing:**  
+  Uses the Gemini API for handling normal text prompts.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Image Generation:**  
+  Leverages the Stability Diffusion API to generate images based on your commands.
+
+- **Cross-Platform Support:**  
+  Works on Android, iOS, web, and desktop.
+
+---
